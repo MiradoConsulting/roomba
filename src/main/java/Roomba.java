@@ -26,7 +26,7 @@ public class Roomba extends AdvancedRobot
 	 * onScannedRobot: What to do when you see another robot
 	 */
 	public void onScannedRobot(ScannedRobotEvent e) {
-		if (e.getName().equals("Dumle")) {
+		if (e.getName().contains("Dumle")) {
 			return;
 		}
 		
