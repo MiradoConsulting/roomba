@@ -14,12 +14,8 @@ public class Roomba extends AdvancedRobot
 	public void run() {
 		setColors(Color.yellow,Color.yellow,Color.blue);
 		setAdjustRadarForRobotTurn(true);
-
-		// Robot main loop
-		while(true) {
-			// scan the shit out of the map roomba!
-			turnRadarRight(360);
-		}
+		// scan the shit out of the map roomba!
+		turnRadarRightRadians(Double.POSITIVE_INFINITY);
 	}
 
 	/**
