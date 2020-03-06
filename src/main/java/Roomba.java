@@ -12,18 +12,12 @@ public class Roomba extends AdvancedRobot
 	 * run: Roomba's default behavior
 	 */
 	public void run() {
-		// Initialization of the robot should be put here
-
-		setColors(Color.yellow,Color.yellow,Color.blue); // body,gun,radar
+		setColors(Color.yellow,Color.yellow,Color.blue);
 		setAdjustRadarForRobotTurn(true);
 
 		// Robot main loop
 		while(true) {
-			// Replace the next 4 lines with any behavior you would like
-			//ahead(100);
-			//turnGunRight(360);
-			//back(200);
-			//turnGunRight(360);
+			// scan the shit out of the map roomba!
 			turnRadarRight(360);
 		}
 	}
@@ -32,7 +26,6 @@ public class Roomba extends AdvancedRobot
 	 * onScannedRobot: What to do when you see another robot
 	 */
 	public void onScannedRobot(ScannedRobotEvent e) {
-		// Replace the next line with any behavior you would like
 		setTurnRadarRight(getHeading() - getRadarHeading() + e.getBearing());
 		setTurnRight(e.getBearing());
 		if (e.getDistance() > 200) {
@@ -48,19 +41,13 @@ public class Roomba extends AdvancedRobot
 	 * onHitByBullet: What to do when you're hit by a bullet
 	 */
 	public void onHitByBullet(HitByBulletEvent e) {
-		// Replace the next line with any behavior you would like
-		//back(10);
-	}
-	
-	public void onHitRobot(HitRobotEvent e) {
-		
+		// Nothing here mate
 	}
 	
 	/**
 	 * onHitWall: What to do when you hit a wall
 	 */
 	public void onHitWall(HitWallEvent e) {
-		// Replace the next line with any behavior you would like
-		//back(20);
+		// No need to do anything here
 	}	
 }
