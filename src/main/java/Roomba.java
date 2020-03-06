@@ -19,14 +19,14 @@ public class Roomba extends AdvancedRobot
 		while(true) {
 			// scan the shit out of the map roomba!
 			turnRadarRight(360);
-		}
+		}	
 	}
 
 	/**
 	 * onScannedRobot: What to do when you see another robot
 	 */
 	public void onScannedRobot(ScannedRobotEvent e) {
-		if (e.getName().contains("Dumle")) {
+		if (e.getName().contains("Dumle") || e.getName().contains("BackstabbinBiatch")) {
 			return;
 		}
 		
