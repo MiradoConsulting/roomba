@@ -1,12 +1,12 @@
 import robocode.*;
-//import java.awt.Color;
+import java.awt.Color;
 
 // API help : http://robocode.sourceforge.net/docs/robocode/robocode/Robot.html
 
 /**
  * Roomba - a robot by (your name here)
  */
-public class Roomba extends Robot
+public class Roomba extends AdvancedRobot
 {
 	/**
 	 * run: Roomba's default behavior
@@ -14,18 +14,17 @@ public class Roomba extends Robot
 	public void run() {
 		// Initialization of the robot should be put here
 
-		// After trying out your robot, try uncommenting the import at the top,
-		// and the next line:
-
-		// setColors(Color.red,Color.blue,Color.green); // body,gun,radar
+		setColors(Color.yellow,Color.yellow,Color.blue); // body,gun,radar
+		setAdjustRadarForRobotTurn(true);
 
 		// Robot main loop
 		while(true) {
 			// Replace the next 4 lines with any behavior you would like
-			ahead(100);
-			turnGunRight(360);
-			back(100);
-			turnGunRight(360);
+			//ahead(100);
+			//turnGunRight(360);
+			//back(200);
+			//turnGunRight(360);
+			turnRadarRight(360);
 		}
 	}
 
@@ -34,7 +33,15 @@ public class Roomba extends Robot
 	 */
 	public void onScannedRobot(ScannedRobotEvent e) {
 		// Replace the next line with any behavior you would like
-		fire(1);
+		setTurnRadarRight(getHeading() - getRadarHeading() + e.getBearing());
+		setTurnRight(e.getBearing());
+		if (e.getDistance() > 200) {
+			setAhead(200);
+		} else if (e.getDistance() > 100) {
+			fire(1);
+		} else {
+			fire(2);
+		}
 	}
 
 	/**
@@ -42,7 +49,11 @@ public class Roomba extends Robot
 	 */
 	public void onHitByBullet(HitByBulletEvent e) {
 		// Replace the next line with any behavior you would like
-		back(10);
+		//back(10);
+	}
+	
+	public void onHitRobot(HitRobotEvent e) {
+		
 	}
 	
 	/**
@@ -50,6 +61,6 @@ public class Roomba extends Robot
 	 */
 	public void onHitWall(HitWallEvent e) {
 		// Replace the next line with any behavior you would like
-		back(20);
+		//back(20);
 	}	
 }
