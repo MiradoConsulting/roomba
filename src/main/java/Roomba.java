@@ -26,14 +26,20 @@ public class Roomba extends AdvancedRobot
 	 * onScannedRobot: What to do when you see another robot
 	 */
 	public void onScannedRobot(ScannedRobotEvent e) {
+		if (e.getName().equals("Dumle")) {
+			return;
+		}
+		
 		setTurnRadarRight(getHeading() - getRadarHeading() + e.getBearing());
 		setTurnRight(e.getBearing());
 		if (e.getDistance() > 200) {
 			setAhead(200);
 		} else if (e.getDistance() > 100) {
 			fire(1);
-		} else {
+		} else if (e.getDistance() > 50) {
 			fire(2);
+		} else {
+			fire(3);
 		}
 	}
 
