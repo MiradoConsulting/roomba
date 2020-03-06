@@ -32,8 +32,8 @@ public class Roomba extends AdvancedRobot
 		
 		setTurnRadarRight(getHeading() - getRadarHeading() + e.getBearing());
 		setTurnRight(e.getBearing());
-		if (e.getDistance() > 200) {
-			setAhead(150);
+		if (e.getDistance() > 150) {
+			setAhead(100);
 		} else if (e.getDistance() > 100) {
 			fire(1);
 		} else if (e.getDistance() > 50) {
