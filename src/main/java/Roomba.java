@@ -39,7 +39,7 @@ public class Roomba extends AdvancedRobot
 		} else if (e.getDistance() > 50) {
 			fire(2);
 		} else {
-			fire(3);
+			fire(5);
 		}
 	}
 
